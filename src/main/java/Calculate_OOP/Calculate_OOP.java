@@ -13,7 +13,7 @@ public class Calculate_OOP {
         this.calculate_operation = calculate_operation;
     }
 
-    public float result (){
+    public float result() {
         return calculate_operation.Vicheslenie(f1, f2);
     }
 
@@ -38,7 +38,7 @@ public class Calculate_OOP {
         }
         Calculate_OOP calculate = new Calculate_OOP(f1, f2, calculate_operation);
         float r = calculate.result();
-        System.out.println("Результат вычисления равен " + r );
+        System.out.println("Результат вычисления равен " + r);
     }
 
 }
