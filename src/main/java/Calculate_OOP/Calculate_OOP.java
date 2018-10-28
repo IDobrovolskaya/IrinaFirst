@@ -1,7 +1,9 @@
 package Calculate_OOP;
+
 import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
 
 import java.util.Scanner;
+
 public class Calculate_OOP {
     private float f1;
     private float f2;
@@ -24,21 +26,29 @@ public class Calculate_OOP {
         float f1 = scanner.nextFloat();
         System.out.println("Введите второе число!");
         float f2 = scanner.nextFloat();
-        System.out.println("Выберите операцию: Вычитание(-) или Сложение (+)");
+        System.out.println("Выберите операцию: Вычитание(-) или Сложение (+) или Деление (/)");
         String operation = scanner.next();
         Calculate_Operation calculate_operation = null;
         if (operation.equals("+"))
             calculate_operation = new Calculator_Addition();
         else if (operation.equals("-"))
             calculate_operation = new Calculator_Sabsrtation();
+        else if (operation.equals("/"))
+            calculate_operation = new Calculate_Division();
+        else if (operation.equals("*"))
+            calculate_operation = new Calculate_Multiplication();
 
         if (calculate_operation == null) {
             System.out.println("Вы не выбрали операцию");
             return;
         }
-        Calculate_OOP calculate = new Calculate_OOP(f1, f2, calculate_operation);
-        float r = calculate.result();
-        System.out.println("Результат вычисления равен " + r);
+        try {
+            Calculate_OOP calculate = new Calculate_OOP(f1, f2, calculate_operation);
+            float r = calculate.result();
+            System.out.println("Результат вычисления равен " + r);
+        } catch (MyException e) {
+            System.out.println("Возникла ошибка: " + e.getMessage());
+        }
     }
 
 }
